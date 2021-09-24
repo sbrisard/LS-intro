@@ -1,0 +1,119 @@
+
+@article{bris2010a,
+  title = {{{FFT}}-Based Methods for the Mechanics of Composites: {{A}} General Variational Framework},
+  shorttitle = {{{FFT}}-Based Methods for the Mechanics of Composites},
+  author = {Brisard, Sébastien and Dormieux, Luc},
+  date = {2010-09},
+  journaltitle = {Computational Materials Science},
+  shortjournal = {Computational Materials Science},
+  volume = {49},
+  number = {3},
+  pages = {663--671},
+  issn = {0927-0256},
+  doi = {10.1016/j.commatsci.2010.06.009},
+  url = {http://www.sciencedirect.com/science/article/pii/S0927025610003563},
+  urldate = {2013-02-14},
+  abstract = {For more than a decade, numerical methods for periodic elasticity, based on the fast Fourier transform, have been used successfully as alternatives to more conventional (fem, bem) numerical techniques for composites. These methods are based on the direct, point-wise, discretization of the Lippmann–Schwinger equation, and a subsequent truncation of underlying Fourier series required for the use of the fast Fourier transform. The basic FFT scheme is very attractive, because of its simplicity of implementation and use. However, it cannot handle pores or rigid inclusions, for which a specific (and significantly more involved) treatment is required. In the present paper, we propose a new FFT-based scheme which is as simple as the basic scheme, while remaining valid for infinite contrasts. Since we adopted an energy principle as an alternative to the Lippmann–Schwinger equation, our scheme is derived within a variational framework. As a by-product, it provides an energetically consistent rule for the homogenization of boundary voxels, a question which has been pending since the introduction of Fourier-based methods.},
+  keywords = {Bounds,Elasticity,FFT},
+  file = {C\:\\Users\\sbrisard\\ownCloud_CNRS\\biblio\\b\\bris2010a\\bris2010a.pdf}
+}
+
+@article{bris2012a,
+  title = {Combining {{Galerkin}} Approximation Techniques with the Principle of {{Hashin}} and {{Shtrikman}} to Derive a New {{FFT}}-Based Numerical Method for the Homogenization of Composites},
+  author = {Brisard, Sébastien and Dormieux, Luc},
+  date = {2012-04-01},
+  journaltitle = {Computer Methods in Applied Mechanics and Engineering},
+  shortjournal = {Computer Methods in Applied Mechanics and Engineering},
+  volume = {217–220},
+  pages = {197--212},
+  issn = {0045-7825},
+  doi = {10.1016/j.cma.2012.01.003},
+  url = {http://www.sciencedirect.com/science/article/pii/S0045782512000059},
+  urldate = {2013-02-15},
+  abstract = {We report on the mathematical analysis of two different, FFT-based, numerical schemes for the homogenization of composite media within the framework of linear elasticity: the basic scheme of Moulinec and Suquet (1994, 1998) [9,10], and the energy-based scheme of Brisard and Dormieux (2010) [13]. Casting these two schemes as Galerkin approximations of the same variational problem allows us to assert their well-posedness and convergence. More importantly, we extend in this work their domains of application, by relieving some stringent conditions on the reference material which were previously thought necessary. The origins of the flaws of each scheme are identified, and a third scheme is proposed, which seems to combine the strengths of the basic and energy-based schemes, while leaving out their weaknesses. Finally, a rule is proposed for handling heterogeneous pixels/voxels, a situation frequently met when images of real materials are used as input to these schemes.},
+  keywords = {Elasticity,FFT},
+  file = {C\:\\Users\\sbrisard\\ownCloud_CNRS\\biblio\\b\\bris2012a\\bris2012a.pdf}
+}
+
+@article{bris2017,
+  title = {Reconstructing Displacements from the Solution to the Periodic {{Lippmann}}–{{Schwinger}} Equation Discretized on a Uniform Grid},
+  author = {Brisard, Sébastien},
+  date = {2017-01-27},
+  journaltitle = {International Journal for Numerical Methods in Engineering},
+  shortjournal = {Int. J. Numer. Meth. Engng},
+  volume = {109},
+  number = {4},
+  pages = {459--486},
+  issn = {1097-0207},
+  doi = {10.1002/nme.5263},
+  url = {http://onlinelibrary.wiley.com/doi/10.1002/nme.5263/abstract},
+  urldate = {2017-01-03},
+  abstract = {Uniform grid solvers of the periodic Lippmann–Schwinger equation have been introduced by Moulinec and Suquet for the numerical homogenization of heterogeneous materials. Based on the fast Fourier transform, these methods use the strain as main unknown and usually do not produce displacement fields. While this is generally not perceived as a restriction for homogenization purposes, some tasks might require kinematically admissible displacement fields. In this paper, we show how the numerical solution to the periodic Lippmann–Schwinger equation can be post-processed to reconstruct a displacement field. Our procedure applies to any variant of the Moulinec–Suquet solver. The reconstruction is formulated as an auxiliary elastic equilibrium problem of a homogeneous material, which is solved with displacement-based finite elements. Taking advantage of periodicity, uniformity of the grid and homogeneity of the material, the resulting linear system is formulated and solved efficiently in Fourier space. The cost of our procedure is lower than that of one iteration of the Lippmann–Schwinger solver. Two applications are proposed, in two and three dimensions. In the first application, the reconstructed displacement field is used to compute a rigorous upper bound on the effective shear modulus. In the second application, the quality of the reconstruction is assessed quantitatively. Copyright © 2016 John Wiley \& Sons, Ltd.},
+  langid = {english},
+  file = {C\:\\Users\\sbrisard\\ownCloud_CNRS\\biblio\\b\\bris2017\\bris2017.pdf}
+}
+
+@article{moul1994,
+  title = {A Fast Numerical Method for Computing the Linear and Nonlinear Mechanical Properties of Composites},
+  author = {Moulinec, Hervé and Suquet, Pierre},
+  date = {1994},
+  journaltitle = {Comptes rendus de l'Académie des sciences. Série II, Mécanique, physique, chimie, astronomie},
+  volume = {318},
+  number = {11},
+  pages = {1417--1423},
+  issn = {1251-8069},
+  url = {http://cat.inist.fr/?aModele=afficheN&cpsidt=4270815},
+  urldate = {2013-05-30},
+  langid = {english},
+  keywords = {Elasticity,FFT,Lippmann-Schwinger equation}
+}
+
+@article{moul1998,
+  title = {A Numerical Method for Computing the Overall Response of Nonlinear Composites with Complex Microstructure},
+  author = {Moulinec, Hervé and Suquet, Pierre},
+  date = {1998-04-28},
+  journaltitle = {Computer Methods in Applied Mechanics and Engineering},
+  shortjournal = {Computer Methods in Applied Mechanics and Engineering},
+  volume = {157},
+  number = {1–2},
+  pages = {69--94},
+  issn = {0045-7825},
+  doi = {10.1016/S0045-7825(97)00218-1},
+  url = {http://www.sciencedirect.com/science/article/pii/S0045782597002181},
+  urldate = {2013-05-30},
+  abstract = {The local and overall responses of nonlinear composites are classically investigated by the Finite Element Method. We propose an alternate method based on Fourier series which avoids meshing and which makes direct use of microstructure images. It is based on the exact expression of the Green function of a linear elastic and homogeneous comparison material. First, the case of elastic nonhomogeneous constituents is considered and an iterative procedure is proposed to solve the Lippman-Schwinger equation which naturally arises in the problem. Then, the method is extended to non-linear constituents by a step-by-step integration in time. The accuracy of the method is assessed by varying the spatial resolution of the microstructures. The flexibility of the method allows it to serve for a large variety of microstructures.},
+  keywords = {Elasticity,FFT,Lippmann-Schwinger equation},
+  file = {C\:\\Users\\sbrisard\\ownCloud_CNRS\\biblio\\m\\moul1998\\moul1998.pdf}
+}
+
+@article{suqu1990,
+  title = {A Simplified Method for the Prediction of Homogenized Elastic Properties of Composites with a Periodic Structure},
+  author = {Suquet, P.},
+  date = {1990},
+  journaltitle = {Comptes-rendus de l'Académie des sciences série II},
+  volume = {311},
+  number = {7},
+  pages = {769--774},
+  abstract = {Homogenization methods for periodic media rely on the solution of a local problem including periodicity conditions. The finite element solving of this problem is quite heavy-going in 3 dimensional settings. We propose to use a Fourier development of the solution, together with a simplifying assumption on the deformation of inclusions. A variational interpretation of this approximate method is given, which turns out to be a lower bound or an upper bound of the exact properties, depending on the stiffnesses of the individual phases. A comparison with finite element results demonstrates that this simplified method is reasonably accurate.},
+  keywords = {Elasticity,Periodic}
+}
+
+@article{wich2020,
+  title = {On {{Quasi}}-{{Newton}} Methods in Fast {{Fourier}} Transform-Based Micromechanics},
+  author = {Wicht, Daniel and Schneider, Matti and Böhlke, Thomas},
+  date = {2020},
+  journaltitle = {International Journal for Numerical Methods in Engineering},
+  volume = {121},
+  number = {8},
+  pages = {1665--1694},
+  issn = {1097-0207},
+  doi = {10.1002/nme.6283},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.6283},
+  urldate = {2020-03-17},
+  abstract = {This work is devoted to investigating the computational power of Quasi-Newton methods in the context of fast Fourier transform (FFT)-based computational micromechanics. We revisit FFT-based Newton-Krylov solvers as well as modern Quasi-Newton approaches such as the recently introduced Anderson accelerated basic scheme. In this context, we propose two algorithms based on the Broyden-Fletcher-Goldfarb-Shanno (BFGS) method, one of the most powerful Quasi-Newton schemes. To be specific, we use the BFGS update formula to approximate the global Hessian or, alternatively, the local material tangent stiffness. Both for Newton and Quasi-Newton methods, a globalization technique is necessary to ensure global convergence. Specific to the FFT-based context, we promote a Dong-type line search, avoiding function evaluations altogether. Furthermore, we investigate the influence of the forcing term, that is, the accuracy for solving the linear system, on the overall performance of inexact (Quasi-)Newton methods. This work concludes with numerical experiments, comparing the convergence characteristics and runtime of the proposed techniques for complex microstructures with nonlinear material behavior and finite as well as infinite material contrast.},
+  langid = {english},
+  keywords = {@Fast-gradient method,@FFT},
+  file = {C\:\\Users\\sbrisard\\ownCloud_CNRS\\biblio\\w\\wich2020\\wich2020.pdf}
+}
+
+

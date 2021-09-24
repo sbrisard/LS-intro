@@ -1,0 +1,69 @@
+\documentclass[final, appendixprefix=true, chapterprefix=true, fontsize=12pt, numbers=noendperiod]{scrbook}
+\newcommand{\myversion}{0.0}
+\newcommand{\mytitle}{An introduction to Lippmann--Schwinger solvers}
+\newcommand{\myauthor}{Sébastien Brisard}
+\author{\myauthor}
+\title{\mytitle}
+\subtitle{Version~\myversion}
+
+\addtokomafont{disposition}{\rmfamily}
+\addtokomafont{caption}{\footnotesize}
+\setkomafont{descriptionlabel}{\normalfont\bfseries}
+\setcapindent{0em}
+
+\usepackage{amsfonts}
+\usepackage[fleqn]{amsmath}
+\setlength{\mathindent}{1ex}
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\renewcommand{\qedsymbol}{}
+
+\usepackage{comment}
+
+\usepackage{graphicx}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+
+\usepackage[backend=biber,bibencoding=utf8,doi=false,giveninits=true,isbn=false,maxnames=10,minnames=5,sortcites=true,style=alphabetic-verb,texencoding=utf8,url=false]{biblatex}
+\addbibresource{LS-intro.bib}
+
+\usepackage{unicode-math}
+\setmainfont{XITS}
+\setmathfont{XITS Math}
+
+\usepackage{xcolor}
+
+\usepackage[allcolors=darkblue,breaklinks=true,colorlinks=true,linktocpage=true,pdfauthor={\myauthor},pdfsubject={},pdftitle={\mytitle}]{hyperref}
+
+\usepackage{pdfcomment}
+\defineavatar{SB}{author=SB,color=darkorange}
+
+\usepackage{pict2e}
+
+\begin{document}
+\maketitle
+
+\vfill
+\begin{center}
+  \includegraphics{img/cc-by-nc-88x31.png}
+
+  This work is licensed under a
+  \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons
+    Attribution-NonCommercial 4.0 International License}.
+\end{center}
+\clearpage
+
+\printbibliography
+
+\end{document}
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% fill-column: 80
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: t
+%%% End:
