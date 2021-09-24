@@ -1,4 +1,5 @@
 \chapter{Nomenclature}
+\label{cha:20210924084856}
 
 \begin{itemize}
 \item \(d\): dimension of the physical space (typically \(d=2, 3\))
@@ -11,12 +12,33 @@
 \item \(\tuple{N}=(N_1, N_2, \ldots, N_d)\): size of the simulation grid
 \item \(\lvert N\rvert=N_1N_2\cdots N_d\): total number of cells
 \item \(h_i=L_i/N_i\): size of the cells (\(i=1, \ldots, d\))
-\item
-  \(\cellindices=\{0, \ldots, N_1-1\}\times\{0, \ldots, N_2-1\}\times\{0,
-  \ldots, N_3-1\}\): set of cell indices
+\item \(\cellindices=\{1, \ldots, N_1\}\times\cdots\times\{1, \ldots, N_d-1\}\):
+  set of cell indices
 \item \(\Omega_{\tuple{p}}\): cells of the simulation grid
   (\(\tuple{p}\in\cellindices\))
 \end{itemize}
+
+\begin{remark}[Naming conventions for indices]
+  \label{rem:20210924090334}
+  In this book, we try to stick to the following conventions
+  \begin{itemize}
+  \item italic, latin indices (\(i\), \(j\), \ldots) refer to components of a
+    tensor in the \(d\)-dimensional space,
+  \item upright, sans-serif, indices are multi-indices over a cartesian grid,
+  \item \(\tuple{p}\), \(\tuple{q}\) are multi-indices in the real space
+    (``pixels''),
+  \item \(\tuple{m}\), \(\tuple{n}\) are multi-indices in the frequency space.
+  \end{itemize}
+\end{remark}
+
+\begin{remark}[Indexing conventions]
+  \label{rem:20210924090344}
+  In the above definition of \(\cellindices\), it is observed that multi-indices
+  start at 1. This is in line with the Julia\footnote{It is recalled that
+    Lippmann--Schwinger solvers presented in the present book are implemented in
+    the library \href{https://github.com/sbrisard/Scapin.jl}{Scapin.jl}}
+  programming language, which is 1-based.
+\end{remark}
 
 %%% Local Variables:
 %%% coding: utf-8
