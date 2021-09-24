@@ -1,0 +1,11 @@
+auto/
+*.aux
+*.bcf
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.upa
+*.upb
+
+LS-intro.pdf
