@@ -5,6 +5,7 @@ will adopt the vocabulary of linear elasticity, although the concepts apply to
 all the various physical models presented in Chap.~\ref{cha:20210928051857}.
 
 \section{The \(\fftfreq\) function}
+\label{sec:20210930055312}
 
 For \(n, N\in\naturals\), \(0\leq n<N\), we introduce \(\fftfreq(n, N)\)
 \begin{equation}
@@ -313,8 +314,8 @@ problem can be retrieved from a finite element discretization
   is not the final version, but the theoretical sections were unchanged through
   the review process.}, where the mesh coincides with the grid introduced
 previously and each element is discretized with linear shape functions (see
-Sec.~\ref{}). The resulting linear system can be solved efficiently by means of
-a matrix-free approach that is outlined below.
+Sec.~\ref{sec:20210930054720}). The resulting linear system can be solved
+efficiently by means of a matrix-free approach that is outlined below.
 
 \subsubsection{The modal strain-displacement vector}
 
@@ -342,10 +343,10 @@ setting, the DFT \(\hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}\) of
 where \(\hat{\vec b}_\tuple{n}^\tuple{h}\) is the so-called \emph{modal
   strain-displacement vector} (see Ref.~\cite{bris2017} for its expression).
 
-The modal strain-displacement vector introduced above is related to the *nodal*
-strain-displacement operator introduced in Sec. [Gradient and
-strain-displacement operators](@ref) of Chap. [On the d-dimensional brick
-element](@ref). Indeed, in components, Eq. \eqref{eq20210914144114} reads
+The modal strain-displacement vector introduced above is related to the
+\emph{nodal} strain-displacement operator introduced in
+Sec.~\ref{sec:20210930054808} of Chap.~\ref{cha:20210930054817}. Indeed, in
+components, Eq.~\eqref{eq:20210914144114} reads
 \begin{equation}
   \hat{\overline{\varepsilon}}_{ij\tuple{n}}^\tuple{h}
   =\tfrac12\bigl(\hat{b}_{i\tuple{n}}^\tuple{h}\hat{u}_{j\tuple{n}}^\tuple{h}
@@ -415,10 +416,10 @@ where \(\hat{\tens K}_\tuple{n}^\tuple{h}\) is the \emph{modal stiffness matrix}
 \end{remark}
 
 The modal stiffness matrix introduced above is related to the \emph{nodal}
-(global) stiffness operator introduced in Sec.~\ref{} of Chap.~\ref{}. Indeed,
-plugging the definition of the discrete Fourier transform (see
-Sec.~\ref{sec:20210924084718}) into Eq. \eqref{eq:20210914060318} delivers the
-following expression
+(global) stiffness operator introduced in Sec.~\ref{sec:20210930054950} of
+Chap.~\ref{cha:20210930054817}. Indeed, plugging the definition of the discrete
+Fourier transform (see Sec.~\ref{sec:20210924084718}) into
+Eq. \eqref{eq:20210914060318} delivers the following expression
 \begin{equation}
   \begin{aligned}[b]
     U={}&\frac1{2\lvert\tuple{N}\rvert}\sum_{\tuple{n}, \tuple{p}, \tuple{q}\in\cellindices}
@@ -451,7 +452,7 @@ where
 is the \emph{nodal stiffness matrix}, which appears as a block-circulant
 matrix. This expresses the fact that the problem under consideration is
 translation-invariant, owing to the homogeneity of the material and the periodic
-boundary conditions (see also Sec.~\ref{}).
+boundary conditions.
 
 In order to derive a FE-approximate solution to the problem described by
 Eq.~\eqref{eq:20210914140834}, we need to account for the contribution
@@ -522,7 +523,7 @@ which defines the discrete Green operator.
 
 \subsection{The discretization of Brisard and Dormieux}
 
-It was proved by Brisard and Dormieux [(2010)](@ref bris2010a) that, for all
+It was proved by in Ref.~\cite{bris2010a} that, for all
 \(\tens\tau^{\tuple h}, \tens\varpi^{\tuple h}\in\tensors_2^{\tuple h}(\Omega)\)
 \begin{equation}
   \langle\tens\varpi^h\dbldot\tens\Gamma(\tens\tau^h)\rangle=\frac1{N^2}
@@ -568,8 +569,8 @@ frequencies are kept
 We must check that the condition for the discrete Green operator to map real
 fields onto real fields is satisfied (see
 Remark~\ref{rem:20210928060531}). Using the properties of the \(\fftfreq\)
-function (see Sec.~\ref{}) and assuming first that none of the \(n_i\) is such
-that \(2n_i=N_i\)
+function (see Sec.~\ref{sec:20210930055312}) and assuming first that none of the
+\(n_i\) is such that \(2n_i=N_i\)
 \begin{equation}
   \hat{\tens\Gamma}_{\tuple N-\tuple n}^{\tuple h, \mathrm{MS94}}
   =\hat{\tens\Gamma}(\vec k_{\tuple Z(\tuple N-\tuple n, \tuple N)})

@@ -1,4 +1,5 @@
 \chapter{On the d-dimensional brick element}
+\label{cha:20210930054817}
 
 In this chapter, we formulate the linear brick finite element for conductivity
 and linear elasticity in \(d\) dimensions (\(d\in\{2, 3\}\)).
@@ -38,6 +39,7 @@ and it is observed that the reduced coordinates of the node \(\tuple{p}\) are
 \(\xi_i=(-1)^{p_i}\).
 
 \section{Shape functions}
+\label{sec:20210930054720}
 
 The shape function associated with node \(\tuple{p}\) is
 \(N^\element_{\tuple{p}}(\vec x)\), wich is defined below as a function of the
@@ -51,6 +53,7 @@ nodal values of \(f\) being \(f_\tuple{p}\), we have the interpolation formula:
 \(f(\vec x)=N^\element_\tuple{p}(\vec x)f_\tuple{p}\).
 
 \section{Gradient and strain-displacement operators}
+\label{sec:20210930054808}
 
 We consider a scalar interpolated field,
 \(f(\vec x)=N^\element_\tuple{p}(\vec x)f_\tuple{p}\). The components of its
@@ -127,6 +130,7 @@ following expression
 \subsection{Conductivity}
 
 \subsection{Linear elasticity}
+\label{sec:20210930054950}
 
 Assuming the material to be linearly elastic, with Lamé coefficients \(\lambda\)
 and \(\mu\), we have the following expression of the interpolated stresses as a
