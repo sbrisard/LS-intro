@@ -18,7 +18,7 @@ For \(n, N\in\naturals\), \(0\leq n<N\), we introduce \(\fftfreq(n, N)\)
 For \(n<0\) or \(n\geq N\), \(\fftfreq(n, N)\) is defined by
 \(N\)-periodicity. \(\fftfreq\) is very similar to the NumPy
 \href{https://numpy.org/doc/1.18/reference/generated/numpy.fft.fftfreq.html#numpy.fft.fftfreq}{fftfreq}
-function. We have the important result (see proof in Sec.~\ref{}).
+function. We have the important result
 \begin{equation}
   \fftfreq(N-n, N)=
   \begin{cases}
@@ -26,6 +26,59 @@ function. We have the important result (see proof in Sec.~\ref{}).
     -\fftfreq(n) & \text{otherwise.}
   \end{cases}
 \end{equation}
+\begin{proof}
+  To prove this property, several cases must be considered.
+  \begin{enumerate}
+  \item If \(n=0\)
+    \begin{equation}
+      \fftfreq(N-n, N)=\fftfreq(N, N)=\fftfreq(0, N)=0=-\fftfreq(n, N)
+    \end{equation}
+  \item If \(N\) is even, \(N=2M\)
+    \begin{enumerate}
+    \item If \(0<n<M\)
+      \begin{gather*}
+        2n<N\quad\Rightarrow\quad \fftfreq(n, N)=n,\\
+        \begin{aligned}
+          M<N-n&\quad\Rightarrow\quad N<2\bigl(N-n\bigr)\\
+          &\quad\Rightarrow\quad \fftfreq(N-n, N)=N-n-N=-n.
+        \end{aligned}
+      \end{gather*}
+    \item If \(n=M\)
+      \begin{gather*}
+        2n=N\quad\Rightarrow\quad \fftfreq(n, N)=n-N=-M,\\
+        2(N-n)=2M=N\quad\Rightarrow\quad \fftfreq(N-n, N)=-M.
+      \end{gather*}
+    \item If \(M<n<N\)
+      \begin{gather*}
+        N<2n\quad\Rightarrow\quad \fftfreq(n, N)=n-N,\\
+        \begin{aligned}
+          N-n<M&\quad\Rightarrow\quad 2\bigl(N-n\bigr)<N\\
+          &\quad\Rightarrow\quad \fftfreq(N-n, N)=N-n.
+        \end{aligned}
+      \end{gather*}
+    \end{enumerate}
+  \item If \(N\) is odd, \(N=2M+1\)
+    \begin{enumerate}
+    \item If \(0<n\leq M\)
+      \begin{gather*}
+        2n\leq 2M<N\quad\Rightarrow\quad \fftfreq(n, N)=n,\\
+        \begin{aligned}
+          M+1\leq N-n&\quad\Rightarrow\quad N<2\bigl(N-n\bigr)\\
+          &\quad\Rightarrow\quad \fftfreq(N-n, N)=N-n-N=-n.
+        \end{aligned}
+      \end{gather*}
+    \item  If \(M+1\leq n<N\)
+      \begin{gather*}
+        N+1\leq 2n\quad\Rightarrow\quad \fftfreq(n, N)=n-N\\
+        \begin{aligned}
+          N-n\leq N-M-1=M&\quad\Rightarrow\quad 2\bigl(N-n\bigr)\leq 2M<N\\
+          &\quad\Rightarrow\quad \fftfreq(N-n, N)=N-n.
+        \end{aligned}
+      \end{gather*}
+    \end{enumerate}
+  \end{enumerate}
+  Which completes the proof.
+\end{proof}
 
 The \(\fftfreq\) function can be defined for \(d\)-tuples as well
 \begin{equation}
