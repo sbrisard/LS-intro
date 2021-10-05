@@ -454,71 +454,107 @@ matrix. This expresses the fact that the problem under consideration is
 translation-invariant, owing to the homogeneity of the material and the periodic
 boundary conditions.
 
+\subsubsection{The discrete Green operator}
+
 In order to derive a FE-approximate solution to the problem described by
 Eq.~\eqref{eq:20210914140834}, we need to account for the contribution
 \(U^\text{eigen}\) of the eigenstress \(\tens\tau^\tuple{h}\) to the total
 potential energy \(\Pi\). This contribution reads, in the real space,
 \begin{equation}
-  U^\text{eigen}=\int_\Omega\bigl[\tens\tau^\tuple{h}(\vec x)
-  \dbldot\tens\varepsilon(\vec x)\bigr]\D x_1\cdots\D x_d
+  \begin{aligned}[b]
+    U^\text{eigen}&=\int_\Omega\bigl[\tens\tau^\tuple{h}(\vec x)
+    \dbldot\tens\varepsilon^\tuple{h}(\vec x)\bigr]\D x_1\cdots\D x_d
+    =\sum_{\tuple{p}\in\cellindices}\int_{\Omega_\tuple{p}}\bigl[\tens
+    \tau^\tuple{h}(\vec x)\dbldot\tens\varepsilon^\tuple{h}(\vec x)\bigr]\D x_1
+    \cdots\D x_d\\
+    &=\sum_{\tuple{p}\in\cellindices}\tens\tau_\tuple{p}^\tuple{h}\dbldot
+    \int_{\Omega_\tuple{p}}\tens\varepsilon^\tuple{h}(\vec x)\D x_1\cdots\D x_d
+    =\lvert\tuple{h}\rvert\sum_{\tuple{p}\in\cellindices}\tens\tau_\tuple{p}^\tuple{h}
+    \dbldot\overline{\tens\varepsilon}_\tuple{p}^\tuple{h}
+    =\frac{\lvert\tuple{h}\rvert}{\lvert\tuple{N}\rvert}\sum_{\tuple{n}\in\cellindices}
+    \hat{\tens\tau}_\tuple{n}^\tuple{h}\dbldot\bigl(\conj
+    \hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}\bigr),
+  \end{aligned}
 \end{equation}
-which can be expressed in Fourier space
+where the last equality results from Plancherel's theorem. Plugging
+expression~\eqref{eq:20210914144114} of the DFT of the cell-average of the
+strain, we find
 \begin{equation}
   U^\text{eigen}=\frac{\lvert\tuple{h}\rvert}{\lvert\tuple{N}\rvert}
-  \sum_{\tuple{n}\in\cellindices}\conj\bigl(\hat{\vec u}_\tuple{n}\bigr)
-  \cdot\hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot
-  \conj\hat{\tens B}_\tuple{n}^\tuple{h},
+  \sum_{\tuple{n}\in\cellindices}\conj\bigl(\hat{\vec u}_\tuple{n}^\tuple{h}
+  \bigr)\cdot\hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot
+  \conj\hat{\tens b}_\tuple{n}^\tuple{h}.
 \end{equation}
-where \(\hat{\tens B}_\tuple{n}^\tuple{h}\) is the modal strain-displacement
-operator introduced above, and \(\hat{\tens\tau}_\tuple{n}^\tuple{h}\) is the
-DFT of the cell-values of the cell-wise constant eigenstrain.
+
+The total potential energy, \(\Pi\), therefore reads
+\begin{equation}
+  \Pi=\frac 1{2\lvert\tuple{N}\rvert}\sum_{\tuple{n}\in\cellindices}\conj\bigl(
+  \hat{\vec u}_\tuple{n}^\tuple{h}\bigr)\cdot\hat{\tens K}_\tuple{n}^\tuple{h}
+  \cdot\hat{\vec u}_\tuple{n}^\tuple{h}+\frac{\lvert\tuple{h}\rvert}
+  {\lvert\tuple{N}\rvert}\sum_{\tuple{n}\in\cellindices}\conj\bigl(
+  \hat{\vec u}_\tuple{n}^\tuple{h}\bigr)\cdot\hat{\tens\tau}_\tuple{n}^\tuple{h}
+  \cdot\conj\hat{\tens b}_\tuple{n}^\tuple{h}.
+\end{equation}
 
 Optimization of \(\Pi\) w.r.t. the nodal displacements delivers the following
 equations
 \begin{equation}
   \label{eq:20210914145137}
   \hat{\tens K}_\tuple{n}^\tuple{h}\cdot\hat{\vec u}_\tuple{n}^\tuple{h}
-  =-\hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot\hat{\tens B}_\tuple{n}^\tuple{h},
+  =-\lvert\tuple{h}\rvert\hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot\conj
+  \hat{\tens b}_\tuple{n}^\tuple{h}.
 \end{equation}
 
 Note that these equations are \emph{uncoupled}: they reduce to a \(d\times d\)
 linear system \emph{for each Fourier mode}. The solution to these equations
 delivers the modal displacements
 \begin{equation}
-  \hat{\vec u}_\tuple{n}^\tuple{h}
-  =-\bigl(\hat{\tens K}_\tuple{n}^\tuple{h}\bigr)^{-1}
-  \cdot\hat{\tens\tau}_\tuple{n}^\tuple{h}
-  \cdot\hat{\tens B}_\tuple{n}^\tuple{h}.
+  \hat{\vec u}_\tuple{n}^\tuple{h}=-\lvert\tuple{h}\rvert\bigl(
+  \hat{\tens K}_\tuple{n}^\tuple{h}\bigr)^{-1}\cdot
+  \hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot\conj\hat{\tens b}_\tuple{n}^\tuple{h}.
 \end{equation}
 
 Combining with Eq.~\eqref{eq:20210914144114}, we get the following expression of
 the cell-average of the strains, in Fourier space
 \begin{equation}
-  \hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}
-  =-\hat{\vec B}_\tuple{n}^\tuple{h}\symotimes
-  \bigl[\bigl(\hat{\tens K}_\tuple{n}^\tuple{h}\bigr)^{-1}
-  \cdot\hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot\hat{\vec B}_\tuple{n}^\tuple{h}\bigr].
+  \label{eq:20211005053844}
+  \hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}=-\lvert\tuple{h}\rvert
+  \hat{\vec b}_\tuple{n}^\tuple{h}\symotimes\bigl[\bigl(
+  \hat{\tens K}_\tuple{n}^\tuple{h}\bigr)^{-1}\cdot
+  \hat{\tens\tau}_\tuple{n}^\tuple{h}\cdot\conj\hat{\vec b}_\tuple{n}^\tuple{h}
+  \bigr].
 \end{equation}
 
 Upon appropriate symmetrization (\(\tens\tau^\tuple{h}\) and
 \(\tens\varepsilon^\tuple{h}\) are both symmetric, second-rank tensors), we find
 \begin{equation}
-  \hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}=-\hat{\tens\Gamma}_\tuple{n}^{\tuple{h}, \text{Bri17}}\dbldot\hat{\tens\tau}_\tuple{n}^\tuple{h},
+  \hat{\overline{\tens\varepsilon}}_\tuple{n}^\tuple{h}
+  =-\hat{\tens\Gamma}_\tuple{n}^{\tuple{h}, \text{Bri17}}\dbldot
+  \hat{\tens\tau}_\tuple{n}^\tuple{h},
 \end{equation}
 with
 \begin{equation}
-  \hat{\tens\Gamma}_\tuple{n}^{\tuple{h}, \text{Bri17}}
-  =\hat{\vec B}_\tuple{n}^\tuple{h}
-  \symotimes\bigl(\tens K_\tuple{n}^\tuple{h}\bigr)^{-1}
-  \symotimes\hat{\vec B}_\tuple{n}^\tuple{h},
+  \label{eq:20211005053906}
+  \hat{\tens\Gamma}_\tuple{n}^{\tuple{h}, \text{Bri17}}=\lvert\tuple{h}\rvert
+  \hat{\vec b}_\tuple{n}^\tuple{h}\symotimes\bigl(\tens K_\tuple{n}^\tuple{h}
+  \bigr)^{-1}\symotimes\hat{\vec b}_\tuple{n}^\tuple{h},
 \end{equation}
-which defines the discrete Green operator.
+which defines the discrete Green operator. \pdfmargincomment[avatar=SB]{TODO:
+  check this formula}
 
 \begin{remark}
-  Eq. \eqref{eq:20210914145137} is singular for \(\vec k = \vec 0\). Indeed, in a
-  periodic setting, the displacement is defined up to a constant translation.  It
-  is convenient to select the solution with zero average, that is
+  Eq.~\eqref{eq:20210914145137} is singular for \(\vec k = \vec 0\). Indeed, in
+  a periodic setting, the displacement is defined up to a constant translation.
+  It is convenient to select the solution with zero average, that is
   \(\hat{\vec u}_\tuple{0}^\tuple{h}=\vec 0\).
+\end{remark}
+
+\begin{remark}
+  Implementation of the discrete Green operator requires the expression of the
+  \emph{matrix-vector} product only; in other words, the discrete Green operator
+  is defined by how it operates on the modes of the stress
+  polarization. Therefore, Eq.~\eqref{eq:20211005053844} is preferred over
+  Eq.~\eqref{eq:20211005053906}.
 \end{remark}
 
 \subsection{The discretization of Brisard and Dormieux}
